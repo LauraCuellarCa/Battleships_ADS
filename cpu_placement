@@ -5,26 +5,76 @@ def place_cpu_ships():
     grid_size = 10
     grid = [[0] * grid_size for _ in range(grid_size)]
 
-    for size in ship_sizes:
-        while True:
-            orientation = random.choice(['horizontal', 'vertical'])
-            if orientation == 'horizontal':
-                x = random.randint(0, grid_size - size)
-                y = random.randint(0, grid_size - 1)
-                if is_valid_placement(grid, x, y, size, orientation):
-                    for i in range(size):
-                        grid[y][x + i] = 1
-                    break
-            else:
-                x = random.randint(0, grid_size - 1)
-                y = random.randint(0, grid_size - size)
-                if is_valid_placement(grid, x, y, size, orientation):
-                    for i in range(size):
-                        grid[y + i][x] = 1
-                    break
+    if place_ships(grid, ship_sizes):
+        return grid
+    else:
+        return None
 
-    return grid
+def place_ships(grid, ships_to_place):
+    if not ships_to_place:
+        return True  
 
+    current_ship = ships_to_place[0]
+
+    while True:
+        orientation = random.choice(['horizontal', 'vertical'])
+        x = random.randint(0, len(grid) - 1)
+        y = random.randint(0, len(grid) - 1)
+#recursion
+        if can_place_ship(grid, x, y, current_ship, orientation):
+            place_ship(grid, x, y, current_ship, orientation)
+
+            
+            if place_ships(grid, ships_to_place[1:]):
+                return True  
+
+            #backtrack
+            remove_ship(grid, x, y, current_ship, orientation)
+
+        if all_ships_placed(grid):
+            break
+
+    return False 
+
+def can_place_ship(grid, x, y, ship_size, orientation):
+    grid_size = len(grid)
+
+    if orientation == 'horizontal':
+        if x + ship_size > grid_size:
+            return False
+        for i in range(ship_size):
+            if grid[y][x + i] != 0:
+                return False
+    else:
+        if y + ship_size > grid_size:
+            return False
+        for i in range(ship_size):
+            if grid[y + i][x] != 0:
+                return False
+
+    return True
+
+def place_ship(grid, x, y, ship_size, orientation):
+    if orientation == 'horizontal':
+        for i in range(ship_size):
+            grid[y][x + i] = 1
+    else:
+        for i in range(ship_size):
+            grid[y + i][x] = 1
+
+def remove_ship(grid, x, y, ship_size, orientation):
+    if orientation == 'horizontal':
+        for i in range(ship_size):
+            grid[y][x + i] = 0
+    else:
+        for i in range(ship_size):
+            grid[y + i][x] = 0
+
+def all_ships_placed(grid):
+    for row in grid:
+        if 0 in row:
+            return False
+    return True
 def is_valid_placement(grid, x, y, size, orientation):
     grid_size = 10
 
