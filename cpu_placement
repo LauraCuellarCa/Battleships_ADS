@@ -75,20 +75,4 @@ def all_ships_placed(grid):
         if 0 in row:
             return False
     return True
-def is_valid_placement(grid, x, y, size, orientation):
-    grid_size = 10
 
-    if orientation == 'horizontal':
-        if x + size > grid_size:
-            return False
-        for i in range(size):
-            if grid[y][x + i] != 0:
-                return False
-    else:
-        if y + size > grid_size:
-            return False
-        for i in range(size):
-            if grid[y + i][x] != 0:
-                return False
-
-    return True
