@@ -5,8 +5,8 @@
 
 This Battleship game is a classic two-player strategy game implemented in Python, featuring a graphical user interface built using Tkinter. The game offers an interactive experience where players can place their ships on a grid and take turns attacking the opponent's fleet. The CPU opponent utilizes a strategic placement algorithm to challenge the player.
 
-## 🔗 Function Explanations and Time Complexities: [Functions Explained](FunctionsExplained.md)
-## 🔗 Algorithms and Data Structures Used: [Algorithms and Data Structures Explained](AlgorithmsAndDataStructures_Explained.md)
+## 🔗 [Function Explanations and Time Complexities](FunctionsExplained.md)
+## 🔗 [Algorithms and Data Structures Explained](AlgorithmsAndDataStructures_Explained.md)
 
 ## Key Features 🔑
 - **Ship Placement:** Players place their ships on the grid one by one, adhering to ship lengths and directions.
