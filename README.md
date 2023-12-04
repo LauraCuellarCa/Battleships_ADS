@@ -1,6 +1,38 @@
 # Battleships - Algorithms and Data Structures Fall 2023
 ### By Laura Cuellar, Clara Mouzannar, Els Vaks, and Edouard Picasso 
 
+# Battleship Game in Python with Tkinter GUI
+
+This Battleship game is a classic two-player strategy game implemented in Python, featuring a graphical user interface built using Tkinter. The game offers an interactive experience where players can place their ships on a grid and take turns attacking the opponent's fleet. The CPU opponent utilizes a strategic placement algorithm to challenge the player.
+
+## Key Features
+- **Ship Placement:** Players place their ships on the grid one by one, adhering to ship lengths and directions.
+- **Battle Phase:** The game transitions to a battle phase where players take turns attacking each other's fleets.
+- **CPU Opponent:** The CPU opponent employs a strategy for ship placement and shooting, providing a challenging single-player experience.
+- **Dynamic Grid:** The graphical interface displays a dynamic grid using Tkinter, with visual feedback on ship placements, hits, and misses.
+- **Ranking System:** A ranking system tracks player performance, recording plays and wins.
+
+## How to Play
+1. Run the program and enter your name in the welcome window.
+2. Place your ships on the grid by clicking on the user canvas.
+3. The game transitions to the battle phase where you click on the enemy grid to attack.
+4. The CPU opponent takes its turns strategically.
+5. The game ends when one player sinks all opponent ships.
+6. Rankings are updated based on the game result.
+
+**Note:** The game offers an option to view player rankings and provides a "Play Again" feature for an engaging and competitive experience.
+
+## Requirements
+- Python 3
+- Tkinter (usually included in standard Python installations)
+
+## Usage
+1. Clone the repository.
+2. Run the `finaltest.py` script.
+
+Enjoy the classic Battleship experience with a modern Python implementation!
+
+
 # Gameplay Flow 
 ## 1. Welcome Window:
    - The game starts with a welcome window prompting the player to enter their name.
