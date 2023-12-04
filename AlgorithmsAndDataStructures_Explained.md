@@ -2,7 +2,50 @@
 ## Below you will find a more in-depth look at the algorithms and data structures that we chose to implement our game. 
 
 ### GREEDY ALGORITHM - CPU Hit System using probability and game logic
- ** clara and edou work here
+In the Battleships game, the CPU's strategy for selecting shots employs a greedy algorithm, which focuses on making the most immediate beneficial move. This approach is evident in the CPU_Player class, particularly in the choose_shot and update_board methods.
+
+ **Initial Hit Detection:**
+ 
+ When the CPU hits a ship (result == "Hit" in update_board), it switches to target_mode, focusing on the area around the hit.
+
+ **Determining Hit Directions:**
+ 
+ The determine_hit_directions method is called to populate self.hit_directions with possible directions (up, down, left, right) for the next shot.
+
+ **Choosing the Next Shot:**
+ 
+ In choose_shot, if in target_mode, the CPU examines the first direction in hit_directions. If that direction is viable (i.e., untried and within the board), it chooses the corresponding cell for the next shot.
+
+ **Switching Directions:**
+
+ If a chosen direction results in a miss, switch_hit_direction is called to remove that direction from hit_directions, effectively choosing the next best immediate option.
+
+ **Greedy Nature:**
+
+ This algorithm is greedy as it always chooses the most immediately promising option (adjacent cells after a hit) without considering the long-term outcome of these choices.
+
+ **Fallback to Random Shots:**
+
+ When not in target_mode, the CPU falls back to random shots (random_shot), selecting untried cells randomly.
+
+**Example Code for Greedy Approach:**
+
+def choose_shot(self):
+    if self.target_mode and self.hit_directions:
+        dr, dc = self.hit_directions[0]
+        next_row, next_col = self.last_hit[0] + dr, self.last_hit[1] + dc
+        if self.board_size > next_row >= 0 == self.cpu_board[next_row][next_col] and 0 <= next_col < self.board_size:
+            return next_row, next_col
+        else:
+            self.switch_hit_direction()
+            return self.choose_shot()
+    else:
+        return self.random_shot()
+
+In this code, the CPU selects its next shot based on the most promising adjacent cell (greedy choice) or resorts to a random selection if no targeted strategy is in play. This approach exemplifies a blend of greedy and random strategies for decision-making in the game.
+
+ 
+ 
 
 ### BACKTRACKING AND RECURSION - CPU Ship Placing Functionality
 The CPU ship placement algorithm in the Battleships game employs a strategic backtracking and recursion approach to ensure a dynamic and changing placement of the CPUs ships on the board.
