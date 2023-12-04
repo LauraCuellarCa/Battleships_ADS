@@ -80,22 +80,29 @@
 
 ### CPU Ship Placement:
 1. **`place_cpu_ships_on_board(enemy_game_board):`**
-   - Places CPU ships on the game board.
+   - Places CPU ships on the game board using specified ship sizes. Utilizes the place_ships function.
+   - Time Complexity: Depends on the efficiency of place_ships
 
 2. **`place_ships(grid, ships_to_place, placement_stack):`**
-    - Recursively places ships on the grid, ensuring valid placement.
+    - Recursively attempts to place ships on the game board using a backtracking algorithm if needed. It explores different orientations and positions for the starting point until a valid placement is found or all possibilities are tried out.
+    - The function uses a while loop to attempt placements until all ships are placed or it determines that a valid placement is not possible.   Inside the loop, it randomises the ship orientation and position and checks if the ship can be placed without violating the rules. If successful, the ship is added to the board, and the recursive call continues for the remaining ships. If not, the algorithm backtracks by removing the last attempted placement and trying a different one. 
+    - Time Complexity: The time complexity depends on the efficiency of the backtracking algorithm
 
 3. **`can_place_ship(grid, x, y, ship_size, orientation):`**
-    - Checks if a ship can be placed at the specified location.
+    - Helper funtion for place_ships that checks if a ship can be placed at the specified position without violating rules.
+    - Time Complexity: O(1).
 
 4. **`place_ship(grid, x, y, ship_size, orientation):`**
-    - Places a ship on the grid at the specified location.
+    - Helper function for place_ships that places a ship on the grid at the specified location changing the value of the corresponding cells on the game board to indicate the presence of the ship.
+    - Time Complexity: O(1).
 
 5. **`remove_ship(grid, x, y, ship_size, orientation):`**
-    - Removes a ship from the grid.
+    - Helper function for the place_ships function. It is used for backtracking and removes a previously placed ship from the game board.
+    - Time Complexity: O(1).
 
 6. **`all_ships_placed(grid):`**
-    - Checks if all ships have been placed on the grid.
+    - Checks if all ships have been placed on the grid by comparing the summation of cell values to summation of ship lengths.
+    - Time Complexity: O(1).
 
 ### Ranking System:
 1. **`__init__(self):`**
