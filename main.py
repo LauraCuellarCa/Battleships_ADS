@@ -10,7 +10,7 @@ from cpu import CPU_Player
 selected_direction = "U"  # Initial direction, you can change this as needed
 game_state = 'placement'  # The initial state is 'placement'
 userHitCount = 0
-current_turn = "user"  # Can be 'user' or 'cpu'
+current_turn = "user"  
 player_name = ""
 ship_sizes = [5, 4, 3, 3, 2]
 
@@ -38,8 +38,8 @@ class Ship:
 def create_welcome_window():
     root = tk.Tk()
     root.title("Welcome to Battleships Game")
-    root.geometry("400x200")  # Set the window size
-    root.configure(bg="white")  # Set the background color of the window
+    root.geometry("400x200")  
+    root.configure(bg="white") 
 
     # Welcome label
     welcome_label = tk.Label(root, text="Welcome to Battleships Game!", font=("Helvetica", 16, "bold"), fg="dark blue", bg="white")
@@ -60,9 +60,7 @@ def create_welcome_window():
 
 def get_player_name_start_game(playerName, root):
     global player_name, game_ranking_system
-    # Do something with the player name (add to ranking list, etc.)
     player_name = playerName
-    #game_ranking_system.add_player(player_name)
     root.destroy()
 
 
@@ -142,7 +140,6 @@ def draw_ship_on_canvas(canvas, ship_length, start_row, start_col, direction):
     start_col += 1
 
     for i in range(ship_length):
-        # Rest of your function...
         if direction == "R":
             canvas.create_rectangle((start_col + i) * cell_size, start_row * cell_size,
                                     (start_col + i + 1) * cell_size, (start_row + 1) * cell_size,
@@ -251,7 +248,7 @@ def on_user_canvas_click(event):
     x = (event.x // cell_size) - 1
     y = (event.y // cell_size) - 1
 
-    print(f"Clicked coordinates: ({x + 1}, {y + 1})")  # Adjusted for human-readable format (1-10 instead of 0-9)
+    print(f"Clicked coordinates: ({x + 1}, {y + 1})") 
 
     # Check if the click is within the grid (1-10) and if there is a ship to place
     if 0 <= x < 10 and 0 <= y < 10 and current_ship:
@@ -289,8 +286,7 @@ def on_user_canvas_click(event):
                 button_right.destroy()
 
         else:
-            # If the placement is not valid, you can provide feedback to the user
-            # text("Invalid placement. Try a different location or direction.")
+            #Let the user know the placement isn't valid (error handling)
             show_temporary_label("Invalid placement! Try a different location or direction.", 3000)
 
 
@@ -308,12 +304,12 @@ def on_battle_click(event):
     # Check if the click is within the grid (1-10)
     if 0 <= x < 10 and 0 <= y < 10:
         # Check if the cell has already been targeted
-        if enemy_game_board[y][x] in [2, -1]:  # Assuming 2 is hit, -1 is miss
+        if enemy_game_board[y][x] in [2, -1]:  # 2 is hit, -1 is miss
             show_temporary_label("Invalid try! Already targeted this cell.", 3000)
             return
 
         result = process_shot(y, x)
-        display_hit_or_miss(enemy_canvas, x, y, result)  # Make sure to update the enemy canvas
+        display_hit_or_miss(enemy_canvas, x, y, result)  # Update the enemy canvas
 
         current_turn = "cpu"
         cpu_turn()
@@ -332,8 +328,6 @@ def cpu_turn():
     current_turn = "user"
 
 # Function to process a shot at the given coordinates
-
-
 def process_cpu_shot(row, col):
     global game_board
     if game_board[row][col] == 2:  # If a ship is present at the coordinates
@@ -373,7 +367,7 @@ def display_hit_or_miss(canvas, col, row, result):
                                     text="Congratulations, Commander!\n Your strategic brilliance has sunk the enemy fleet!",
                                     font=("Helvetica", 25), bg="green")
             youWon_label.grid(row=0, column=0, columnspan=2,
-                              pady=5)  # Adjust row, column, and other parameters as needed
+                              pady=5)  
             #Update Rankings
             game_ranking_system.record_play(player_name, won=True)
             game_ranking_system.record_play("A&DS", won=False)
@@ -392,7 +386,7 @@ def display_hit_or_miss(canvas, col, row, result):
                                     text="Sorry, Commander!\n You never stood a chance against Algorithms and Data Structures",
                                     font=("Helvetica", 25), bg="red")
             youWon_label.grid(row=0, column=0, columnspan=2,
-                              pady=5)  # Adjust row, column, and other parameters as needed
+                              pady=5)  
             #Update Rankings
             game_ranking_system.record_play(player_name, won=False)
             game_ranking_system.record_play("A&DS", won=True)
@@ -404,13 +398,12 @@ def display_hit_or_miss(canvas, col, row, result):
 
     elif result == "Miss":
         canvas.create_text(center_x, center_y, text="O", fill="blue", font=("Helvetica", 14))
-    # You could also handle the "Already Tried" case if desired
 
 def display_rankings(ranking_system):
     # Create a new Tkinter window
     window = tk.Tk()
     window.title("Player Rankings")
-    window.geometry("500x450")  # Adjusted window size to accommodate the button
+    window.geometry("500x450")  
     window.config(bg="white")
 
     # Get ranking
@@ -467,19 +460,19 @@ tk.Label(root, text="USER SHIPS", fg="white", font=("Helvetica", 16)).grid(row=1
 # Ask user to enter direction
 dir_prompt_label = tk.Label(root, text="Enter the direction you would like to place the ship in:",
                             font=("Helvetica", 14))
-dir_prompt_label.grid(row=3, column=0, columnspan=2, pady=5)  # Adjust row, column, and other parameters as needed
+dir_prompt_label.grid(row=3, column=0, columnspan=2, pady=5) 
 
 # Display for the upcoming ship
 shipLabel_text = tk.StringVar()
 shipLabel_text.set(f"First ship to place: Aircraft Carrier (length: 5)")
 shipLabel = tk.Label(root, textvariable=shipLabel_text, font=("Helvetica", 14))
-shipLabel.grid(row=2, column=0, columnspan=2, pady=5)  # Adjust row, column, and other parameters as needed
+shipLabel.grid(row=2, column=0, columnspan=2, pady=5) 
 
 # Display for direction of ship
 dirLabel_text = tk.StringVar()
 dirLabel_text.set(f"Current direction: U")
 dirLabel = tk.Label(root, textvariable=dirLabel_text, font=("Helvetica", 14))
-dirLabel.grid(row=4, column=0, columnspan=2, pady=5)  # Adjust row, column, and other parameters as needed
+dirLabel.grid(row=4, column=0, columnspan=2, pady=5) 
 
 temp_label = tk.Label(root, font=("Helvetica", 20))
 temp_label.grid(row=0, column=0, columnspan=2, pady=5)
