@@ -2,30 +2,25 @@
 ## Below you can find the functions used across the 'main.py', 'cpu.py', 'Rankings.py', and 'welcomeWindow.py' files, along with their explanations and time complexities.
 
 ### User Ship Placement:
-1. **`create_welcome_window():`**
-   - Creates a Tkinter window for the welcome screen.
-   - Takes user's name input.
 
-2. **`get_player_name_start_game(playerName, root):`**
-   - Processes the entered player name and starts the game.
-
-3. **`create_grid(canvas, cell_size):`**
+1. **`create_grid(canvas, cell_size):`**
    - Creates a grid on the given canvas with specified cell size.
 
-4. **`is_valid_placement(ship_length, start_row, start_col, direction, board):`**
+2. **`is_valid_placement(ship_length, start_row, start_col, direction, board):`**
    - Checks if a ship can be placed at the specified location on the board.
 
-5. **`show_temporary_label(text, duration):`**
-   - Displays a temporary label with the provided text for a specified duration.
+3. **`show_temporary_label(text, duration):`**
+   - Displays a temporary label for 3 seconds warning the user that their chosen ship placement is invalid and to please try again. 
 
-6. **`clear_temporary_label():`**
-   - Clears the temporary label.
+4. **`clear_temporary_label():`**
+   - Clears the temporary warning label.
 
-7. **`draw_ship_on_canvas(canvas, ship_length, start_row, start_col, direction):`**
+5. **`draw_ship_on_canvas(canvas, ship_length, start_row, start_col, direction):`**
    - Draws a ship on the canvas based on its length, starting position, and direction.
 
-8. **`on_user_canvas_click(event):`**
+6. **`on_user_canvas_click(event):`**
    - Handles the user's click on the user canvas during ship placement.
+
 ### CPU Opponent:
 1. **`__init__(self, board_size=10):`**
    - Initializes an instance of the `CPU_Player` class with a specified or default board size.
@@ -75,7 +70,8 @@
     - Displays player rankings in a new Tkinter window.
 
 3. **`restart_game():`**
-    - Restarts the game by saving data and running the `finaltest.py` script.
+    - Restarts the game by saving data and running the `main.py` script again.
+    - This function is called after the user presses the "Play again" button from the rankings window. 
 
 ### CPU Ship Placement:
 1. **`place_cpu_ships_on_board(enemy_game_board):`**
@@ -105,21 +101,26 @@
 
 3. **`record_play(self, player_name, won=False):`**
    - Records a play for the specified player, increments play count, and, if applicable, win count.
-
+   - Checks if the player already exists in the dictionary, and if so, it updates their play/win count. Otherwise, it calls on the 'add_player' function and adds them to the player dictionary with initial values. 
+     
 4. **`merge_sort(self, player_list):`**
    - Performs the merge sort algorithm on the list of players, sorting them based on the number of wins.
+   - recursively divides the player_list into smaller halves until each subarray has only one element (which is inherently sorted). Then, it merges these sorted subarrays back together in a way that ensures the final merged array is sorted. More detailed explanation here --> 
 
 5. **`get_ranking(self):`**
    - Returns a sorted list of players based on their win counts.
+   - Calls on the merge_sort algorithm and passes in the current player_list as a parameter. 
 
 6. **`save_data(self):`**
    - Saves the ranking system data (players and their stats) to a JSON file named "player_data.json."
 
 7. **`load_data(self):`**
    - Loads the ranking system data from the "player_data.json" file.
+   - return empty data if the file is not found. 
 
 8. **`load_existing_players(self):`**
    - Loads existing player data at the beginning of the game. Calls `load_data()` internally.
+   - Implemented to keep game history up to date everytime the user choses to "play again"
    
 
 ### Welcome Window
