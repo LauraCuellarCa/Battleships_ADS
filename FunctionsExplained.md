@@ -156,9 +156,11 @@
 
 1. **`create_welcome_window():`**
    - Creates a welcome window for the Battleships Game using Tkinter.
+   - Creating a Tkinter window, labels, entry widget, and a button involves constant-time operations. Therefore, the overall time complexity of create_welcome_window is O(1).
   
 2. **`get_player_name_start_game(playerName, root):`**
    - Gets the player name entered in the welcome window and starts the game. Closes the welcome window.
+   - Assigning the global variable player_name is a constant-time operation. Destroying the Tkinter window (root.destroy()) is also a constant-time operation. Therefore, the overall time complexity of get_player_name_start_game is O(1).
 
 
 
