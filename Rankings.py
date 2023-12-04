@@ -17,7 +17,7 @@ class RankingSystem:
         else:
             # If the player doesn't exist, add them with initial values
             self.add_player(player_name)
-            # Now, update their plays and wins
+            # Update their plays and wins
             self.players[player_name]['plays'] += 1
             if won:
                 self.players[player_name]['wins'] += 1
@@ -74,5 +74,4 @@ class RankingSystem:
             self.players = {}
 
     def load_existing_players(self):
-        # Call this method at the beginning of the game
         self.load_data()
