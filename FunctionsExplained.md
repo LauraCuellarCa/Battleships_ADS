@@ -121,7 +121,7 @@
      
 4. **`merge_sort(self, player_list):`**
    - Performs the merge sort algorithm on the list of players, sorting them based on the number of wins.
-   - recursively divides the player_list into smaller halves until each subarray has only one element (which is inherently sorted). Then, it merges these sorted subarrays back together in a way that ensures the final merged array is sorted. More detailed explanation [here.](AlgorithmsAndDataStructures_Explained.md).
+   - recursively divides the player_list into smaller halves until each subarray has only one element (which is inherently sorted). Then, it merges these sorted subarrays back together in a way that ensures the final merged array is sorted. More detailed explanation [here](AlgorithmsAndDataStructures_Explained.md).
    - The time complexity of merge sort is O(n log n), where n is the length of the player_list. This is due to the recursive nature of the algorithm.
 
 5. **`get_ranking(self):`**
