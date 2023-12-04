@@ -1,5 +1,5 @@
 # Battleships Functions
-## Below you can find the functions used across the main.py, cpu.py, Rankings.py, and welcomeWindow.py files, along with their explanations and time complexities.
+## Below you can find the functions used across the 'main.py', 'cpu.py', 'Rankings.py', and 'welcomeWindow.py' files, along with their explanations and time complexities.
 
 ### User Ship Placement:
 1. **`create_welcome_window():`**
