@@ -1,7 +1,11 @@
 # Battleships Algorithms and Data Structures
 ## Below you will find a more in-depth look at the algorithms and data structures that we chose to implement our game. 
 
-### * CPU Algos/ Data structere here (hit or miss greedy/dynamic prog, ship placement using recursion and backtracking, etc. *
+### GREEDY ALGORITHM - CPU Hit System using probability and game logic
+ ** clara and edou work here
+
+### BACKTRACKING AND RECURSION - CPU Ship Placing Functionality
+** els work here 
 
 ### MERGE SORT - key aspect of our ranking system
 
@@ -145,4 +149,5 @@ In the provided Battleships game code, the `ship_queue` is a deque (double-ended
             # If the placement is not valid, provide feedback to the user
             show_temporary_label("Invalid placement! Try a different location or direction.", 3000)
 
+### STACKS - 
 
