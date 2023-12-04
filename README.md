@@ -1,3 +1,5 @@
-# Battleships_ADS
+# Battleships
+##Algorithms and Data Structures Fall 2023
+###By Laura Cuellar, Clara Mouzannar, Els Vaks, and Edouard Picasso 
 
-*Here we will write a text description/explanation of the overall project + all the components of our program*
+
