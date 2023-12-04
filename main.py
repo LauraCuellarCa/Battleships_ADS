@@ -12,6 +12,7 @@ game_state = 'placement'  # The initial state is 'placement'
 userHitCount = 0
 current_turn = "user"  # Can be 'user' or 'cpu'
 player_name = ""
+ship_sizes = [5, 4, 3, 3, 2]
 
 # Global variables for CPU strategy
 cpu_hits = []  # List to store hit positions
@@ -20,9 +21,7 @@ last_hit = None  # Track the last hit position for targeted shooting
 target_mode = False  # Flag to indicate if CPU is in target mode (post-hit)
 cpuHitCount = 0
 
-
 cpu_player = CPU_Player()
-
 
 game_ranking_system = RankingSystem()
 game_ranking_system.add_player("A&DS")
@@ -167,7 +166,7 @@ def draw_ship_on_canvas(canvas, ship_length, start_row, start_col, direction):
 
 # Function to place CPU ships on the game board
 def place_cpu_ships_on_board(enemy_game_board):
-    ship_sizes = [5, 4, 3, 3, 2]
+    global ship_sizes
     if place_ships(enemy_game_board, ship_sizes, []):
         return enemy_game_board
     else:
@@ -256,8 +255,6 @@ def on_user_canvas_click(event):
 
     # Check if the click is within the grid (1-10) and if there is a ship to place
     if 0 <= x < 10 and 0 <= y < 10 and current_ship:
-        # Rest of your function...
-        # Check if the placement is valid
         if is_valid_placement(current_ship.length, y, x, selected_direction, game_board):
             # If valid, draw the ship on canvas and update the game board
             draw_ship_on_canvas(user_canvas, current_ship.length, y, x, selected_direction)
@@ -334,45 +331,7 @@ def cpu_turn():
 
     current_turn = "user"
 
-
-def get_random_shot():
-    # Find section with minimum shots
-    min_shots = min(min(row) for row in section_shots)
-    candidate_sections = []
-    for i in range(5):
-        for j in range(5):
-            if section_shots[i][j] == min_shots:
-                candidate_sections.append((i, j))
-
-    selected_section = random.choice(candidate_sections)
-    section_row, section_col = selected_section
-
-    # Random shot within the selected section
-    row = random.randint(section_row * 2, section_row * 2 + 1)
-    col = random.randint(section_col * 2, section_col * 2 + 1)
-
-    section_shots[section_row][section_col] += 1
-
-    return row, col
 # Function to process a shot at the given coordinates
-
-
-def get_targeted_shot(last_hit):
-    global game_board
-    row, col = last_hit
-    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # Right, Down, Left, Up
-    random.shuffle(directions)  # Randomize directions to add unpredictability
-
-    for dr, dc in directions:
-        new_row, new_col = row + dr, col + dc
-        # Check if the new cell is within the board
-        if 0 <= new_row < 10 and 0 <= new_col < 10:
-            # Then check if it's not already tried
-            if game_board[new_row][new_col] == 0 or game_board[new_row][new_col] == 2:
-                return new_row, new_col
-
-    # If all adjacent cells have been tried, revert to random shot
-    return get_random_shot()
 
 
 def process_cpu_shot(row, col):
@@ -395,7 +354,6 @@ def process_shot(row, col):
         enemy_game_board[row][col] = -1  # Mark as miss
         return "Miss"
     return "Already Tried"  # If the cell has already been guessed
-
 
 # Function to display hit or miss on the canvas
 def display_hit_or_miss(canvas, col, row, result):
@@ -477,7 +435,7 @@ def display_rankings(ranking_system):
 
 def restart_game():
     game_ranking_system.save_data()
-    subprocess.run([sys.executable, 'finaltest.py'])
+    subprocess.run([sys.executable, 'main.py'])
 
 #Start game with welcome window
 create_welcome_window()
