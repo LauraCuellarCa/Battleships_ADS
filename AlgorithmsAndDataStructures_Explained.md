@@ -28,25 +28,7 @@ In the Battleships game, the CPU's strategy for selecting shots employs a greedy
 
  When not in target_mode, the CPU falls back to random shots (random_shot), selecting untried cells randomly.
 
-**7. Example Code for Greedy Approach:**
 
-def choose_shot(self):
-    if self.target_mode and self.hit_directions:
-        dr, dc = self.hit_directions[0]
-        next_row, next_col = self.last_hit[0] + dr, self.last_hit[1] + dc
-        if self.board_size > next_row >= 0 == self.cpu_board[next_row][next_col] and 0 <= next_col < self.board_size:
-            return next_row, next_col
-        else:
-            self.switch_hit_direction()
-            return self.choose_shot()
-    else:
-        return self.random_shot()
-
-
-            
-In this code, the CPU selects its next shot based on the most promising adjacent cell (greedy choice) or resorts to a random selection if no targeted strategy is in play. This approach exemplifies a blend of greedy and random strategies for decision-making in the game.
-
- 
  
 
 ### BACKTRACKING AND RECURSION - CPU Ship Placing Functionality
