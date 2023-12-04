@@ -5,6 +5,7 @@
 
 1. **`create_grid(canvas, cell_size):`**
    - Creates a grid on the given canvas with specified cell size.
+   - It iteratively draws lines using a for-loop, so therefore the time complexity of this function is O(n), where n is the number of cells in one dimension of the grid.
 
 2. **`is_valid_placement(ship_length, start_row, start_col, direction, board):`**
    - Checks if a ship can be placed at the specified location on the board.
@@ -17,6 +18,8 @@
 
 5. **`draw_ship_on_canvas(canvas, ship_length, start_row, start_col, direction):`**
    - Draws a ship on the canvas based on its length, starting position, and direction.
+   - It uses simple iterative constructs, similar to the create_grid function.
+   - The time complexity of this function is O(n), where n is the length of the ship, as it iteratively draws each segment of the ship proportional to its length.
 
 6. **`on_user_canvas_click(event):`**
    - Handles the user's click on the user canvas during ship placement.
@@ -45,19 +48,24 @@
 
 ### Battle Phase:
 1. **`cpu_turn():`**
-    - Executes the CPU's turn.
+    - Depending on the current_turn, this function activates all the functions of the cpu.
+    - The time complexity is O(1), depending on the functions it activates.
 
 2. **`get_random_shot():`**
     - Gets a random shot for the CPU.
+    - This function uses random number generation and the time complexity is O(1) as it computes the random shot in constant time.
 
 3. **`process_cpu_shot(row, col):`**
-    - Processes a CPU shot and updates the game board.
+    - Processes the CPU's shot by updating the game board based on whether a hit or miss occurred.
+    - Its time complexity is O(1), as it involves direct access and update of array elements.
 
 4. **`process_shot(row, col):`**
-    - Processes a user's shot and updates the enemy game board.
+    - This function processes the user's shot and updates the enemy game board.
+    - It also operates with a time complexity of O(1), involving direct array element manipulation without complex algorithms.
 
 5. **`display_hit_or_miss(canvas, col, row, result):`**
-    - Displays a hit or miss on the canvas based on the result.
+    - Displays the result of a shot (hit or miss) on the canvas.
+    - As it is mostly a UI affecting function, its time complexity depends on the underlying graphics but can be considered O(1) for the logic part of updating a single grid cell.
 
 ### Game Management:
 1. **`create_ranking_system():`**
