@@ -4,8 +4,8 @@ player_name = ""
 def create_welcome_window():
     root = tk.Tk()
     root.title("Welcome to Battleships Game")
-    root.geometry("400x200")  # Set the window size
-    root.configure(bg="white")  # Set the background color of the window
+    root.geometry("400x200")  
+    root.configure(bg="white") 
 
     # Welcome label
     welcome_label = tk.Label(root, text="Welcome to Battleships Game!", font=("Helvetica", 16, "bold"), fg="dark blue", bg="white")
@@ -26,6 +26,5 @@ def create_welcome_window():
 
 def get_player_name_start_game(playerName, root):
     global player_name
-    # Do something with the player name (add to ranking list, etc.)
     player_name = playerName
     root.destroy()
