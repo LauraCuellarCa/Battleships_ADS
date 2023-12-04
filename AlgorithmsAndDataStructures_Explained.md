@@ -5,7 +5,39 @@
  ** clara and edou work here
 
 ### BACKTRACKING AND RECURSION - CPU Ship Placing Functionality
-** els work here 
+The CPU ship placement algorithm in the Battleships game employs a strategic backtracking and recursion approach to ensure a dynamic and changing placement of the CPUs ships on the board.
+
+1. **Base Case**
+
+-   If there are no more ships to place (not ships_to_place), the algorithm returns True, indicating successful placement.
+
+2. **Randomization**
+
+-   Randomly select the orientation (horizontal or vertical) for the current ship.
+
+-   Randomly choose coordinates (x, y) on the game board.
+
+3. **Recursive Calls**
+
+-   If the selected position is valid for placing the ship, update the game board and proceed to the next ship.
+
+-   Recursively call the place_ships function for the remaining ships.
+
+4. **Backtracking**
+
+-   If the recursive calls fail (indicating an invalid placement), the algorithm backtracks by removing the last placed ship by calling remove_ship and exploring alternative positions.
+
+-   This process repeats until a valid placement for all ships is found.
+
+5. **Helper Functions**
+
+-   can_place_ship: Checks if a ship can be placed at a given position.
+
+-   place_ship: Updates the game board with the placement of a ship.
+
+-   remove_ship: Backtracks by removing a previously placed ship from the game board.
+
+-   all_ships_placed: Checks if all ships are successfully placed on the game board.
 
 ### MERGE SORT - key aspect of our ranking system
 
