@@ -1,7 +1,7 @@
 # Battleships Algorithms and Data Structures
 ## Below you will find a more in-depth look at the algorithms and data structures that we chose to implement our game. 
 
-### * CPU Algos/ Data structere here (hit or miss greedy/dynamic prog, ship placement using backtracking and stacks, etc. *
+### * CPU Algos/ Data structere here (hit or miss greedy/dynamic prog, ship placement using recursion and backtracking, etc. *
 
 ### Merge Sort - key aspect of our ranking system
 
@@ -33,8 +33,7 @@ We used this divide-and-conquer sorting algorithm by recursively dividing the pl
 The end result is that the `player_list` is now sorted based on the value of `['wins']` in the sub-dictionaries. The merging step ensures that the smaller sorted arrays are combined in a way that maintains overall order. This process is repeated until the entire list is sorted.
  
  **Code: (found in Rankings.py)**
-       ```python
-       
+
        def merge_sort(self, player_list):    
            if len(player_list) > 1:
                mid = len(player_list) // 2
