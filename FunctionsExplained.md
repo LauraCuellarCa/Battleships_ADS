@@ -31,26 +31,34 @@
 
 ### CPU Opponent:
 1. **`__init__(self, board_size=10):`**
-   - Initializes an instance of the `CPU_Player` class with a specified or default board size.
+   - Initializes an instance of the CPU_Player class with a specified or default board size.
+   -Time Complexity: O(1), as it primarily involves assigning values and initializing a 2D list, both of which are constant-time operations.
   
 2. **`update_board(self, row, col, result):`**
    - Updates the CPU player's board based on the result of a shot (Hit or Miss).
+   - Changes target mode and hit direction based on the result.
+   - Time Complexity: O(1), as it involves basic conditional checks and assignments, which are constant-time operations.
   
 3. **`determine_hit_directions(self, row, col):`**
-   - Determines the possible hit directions for the CPU player to continue targeting a ship.
+   - Determines the possible hit directions (up, down, left, right) for the CPU player to continue targeting a ship and appends them to hit_directions.
+   - Time Complexity: O(1), as it loops over a fixed number of directions (four) and performs constant-time checks and operations.
   
 4. **`switch_hit_direction(self):`**
-   - Switches the hit direction if the current direction reaches a dead-end.
+   - Switches the hit direction if the current direction results in a miss, by popping from hit_directions deque. Resets target mode if no directions are left.
+   - Time Complexity: O(1), as it involves deque operations (popleft) and simple conditional checks, all of which are constant-time operations.
   
 5. **`choose_shot(self):`**
-   - Chooses the next shot based on the current targeting mode or takes a random shot if not in target mode.
+   - Chooses the next shot based on the current targeting mode. In target mode, it follows the hit directions, otherwise, it calls random_shot.
+   - Time Complexity: O(1) in most cases, as it involves deque access and basic operations. However, in cases where it needs to repeatedly switch directions and recall itself, it could potentially be higher, but generally, it will resolve with very few iterations.
   
 6. **`random_shot(self):`**
-   - Generates a random shot (row, col) on the CPU player's board.
+   - Generates and returns a random shot (row, col) on the CPU player's board, ensuring the cell hasn't been targeted before.
+   - Time Complexity: O(1) on average, but this can increase as the number of available cells decreases. The function repeats until it finds an untargeted cell, so in a nearly complete game, it may take more iterations.
   
 7. **`reset_target_mode(self):`**
-   - Resets the target mode, clearing hit information and preparing for a new round.
-
+   - Resets the target mode of the CPU player by clearing last_hit, hit_directions, and resetting target_mode and original_hit.
+   - Time Complexity: O(1), as it involves resetting a few variables and clearing a deque, which are all constant-time operations.
+     
 ### Battle Phase:
 1. **`cpu_turn():`**
     - Depending on the current_turn, this function activates all the functions of the cpu.
