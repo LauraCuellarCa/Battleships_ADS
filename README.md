@@ -1,14 +1,15 @@
-# Battleships - Algorithms and Data Structures Fall 2023
+# Battleships 🛳💥🌊⚓️ - Algorithms and Data Structures Fall 2023
 ### By Laura Cuellar, Clara Mouzannar, Els Vaks, and Edouard Picasso 
 
 # Battleship Game in Python with Tkinter GUI
 
 This Battleship game is a classic two-player strategy game implemented in Python, featuring a graphical user interface built using Tkinter. The game offers an interactive experience where players can place their ships on a grid and take turns attacking the opponent's fleet. The CPU opponent utilizes a strategic placement algorithm to challenge the player.
 
-## Function Explanations + Time Complexities: [Functions Explained](FunctionsExplained.md)
-## Algorithms and Data Structures Used: [Algorithms and Data Structures](AlgorithmsAndDataStructures_Explained.md)
+## 🔗 Function Explanations and Time Complexities: [Functions Explained](FunctionsExplained.md)
+## 🔗 Algorithms and Data Structures Used: [Algorithms and Data Structures Explained](AlgorithmsAndDataStructures_Explained.md)
+🚢⛴⚓️🗺🔗🔑🧨💣🛳🎮💥☄️🌊👩🏽‍💻
 
-## Key Features
+## Key Features 🔑
 - **Ship Placement:** Players place their ships on the grid one by one, adhering to ship lengths and directions.
 - **Battle Phase:** The game transitions to a battle phase where players take turns attacking each other's fleets.
 - **CPU Opponent:** The CPU opponent employs a strategy for ship placement and shooting, providing a challenging single-player experience.
@@ -34,7 +35,7 @@ This Battleship game is a classic two-player strategy game implemented in Python
 2. Run the `main.py` script.
 
 
-## Gameplay Flow 
+## Gameplay Flow 🎮 🗺
 **1. Welcome Window:**
    - The game starts with a welcome window prompting the player to enter their name.
    - The player enters their name and clicks the "Start Game" button.
