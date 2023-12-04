@@ -9,12 +9,16 @@
 
 2. **`is_valid_placement(ship_length, start_row, start_col, direction, board):`**
    - Checks if a ship can be placed at the specified location on the board.
+   - The function has a loop that iterates over the range of ship_length for each direction (Right, Left, Down, Up). In each iteration of the loop, the function performs constant-time operations (comparisons and indexing) to check if the placement is valid.
+   - Time complexity of O(n), where n is the ship_length of the ship being placed on the board.
 
 3. **`show_temporary_label(text, duration):`**
-   - Displays a temporary label for 3 seconds warning the user that their chosen ship placement is invalid and to please try again. 
+   - Displays a temporary label for 3 seconds warning the user that their chosen ship placement is invalid and to please try again.
+   - The temp_label.config operation sets the text, foreground color (fg), and background color (bg) of the temp_label widget. This operation is constant time since it involves updating the attributes of a GUI element. The temp_label.after(duration, clear_temporary_label) schedules the clear_temporary_label function to be called after a certain duration. This is also a constant-time operation. Therefore, the time complexity of show_temporary_label is constant, O(1).
 
 4. **`clear_temporary_label():`**
    - Clears the temporary warning label.
+   - The temp_label.config operation sets the text to an empty string and changes the background color. Like in the show_temporary_label function, this operation is constant time. The time complexity of clear_temporary_label is also constant, O(1).
 
 5. **`draw_ship_on_canvas(canvas, ship_length, start_row, start_col, direction):`**
    - Draws a ship on the canvas based on its length, starting position, and direction.
@@ -22,7 +26,8 @@
    - The time complexity of this function is O(n), where n is the length of the ship, as it iteratively draws each segment of the ship proportional to its length.
 
 6. **`on_user_canvas_click(event):`**
-   - Handles the user's click on the user canvas during ship placement.
+   - Handles the user's click on the user canvas during ship placement. Checks if it is a valid placement, updates the board, and perform dequeue() operations.
+   - Because the dominant factor of this functions is the validation and updating steps (both proportional to the length of the ship), the overall time complexity of the on_user_canvas_click function is O(n) where n is ship_length.
 
 ### CPU Opponent:
 1. **`__init__(self, board_size=10):`**
