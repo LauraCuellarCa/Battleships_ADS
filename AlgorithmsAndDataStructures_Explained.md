@@ -183,3 +183,18 @@ In the provided Battleships game code, the `ship_queue` is a deque (double-ended
 
 ### STACKS - 
 
+A list with stack-like behaviour is used in the place_ships function for the CPU ship placement to enable backtracking.
+
+1. **Initialization of placement_stack**:
+
+-   placement_stack is initialized as an empty list at the beginning of the place_ships function.
+
+2. **Pushing onto the Stack**:
+
+-   Whenever a ship is successfully placed on the game board, the corresponding information (coordinates, ship size, and orientation) is appended to placement_stack.
+
+3. **Popping from the Stack (Backtracking)**:
+
+-   If there is a need to backtrack (e.g., when a subsequent ship cannot be placed), the last placed ship's information is removed from the placement_stack using pop.
+
+This simulates the backtracking behavior by undoing the last placement and allowing the algorithm to explore alternative placements.
