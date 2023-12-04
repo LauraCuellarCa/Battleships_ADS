@@ -50,16 +50,13 @@
 2. **`get_random_shot():`**
     - Gets a random shot for the CPU.
 
-3. **`get_targeted_shot(last_hit):`**
-    - Gets a targeted shot for the CPU based on the last hit position.
-
-4. **`process_cpu_shot(row, col):`**
+3. **`process_cpu_shot(row, col):`**
     - Processes a CPU shot and updates the game board.
 
-5. **`process_shot(row, col):`**
+4. **`process_shot(row, col):`**
     - Processes a user's shot and updates the enemy game board.
 
-6. **`display_hit_or_miss(canvas, col, row, result):`**
+5. **`display_hit_or_miss(canvas, col, row, result):`**
     - Displays a hit or miss on the canvas based on the result.
 
 ### Game Management:
