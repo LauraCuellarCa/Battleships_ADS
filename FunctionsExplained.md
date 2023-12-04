@@ -1,3 +1,6 @@
+# Battleships Functions
+## Below you can find the functions used across the main.py, cpu.py, Rankings.py, and welcomeWindow.py files, along with their explanations and time complexities.
+
 ### User Ship Placement:
 1. **`create_welcome_window():`**
    - Creates a Tkinter window for the welcome screen.
@@ -23,9 +26,7 @@
 
 8. **`on_user_canvas_click(event):`**
    - Handles the user's click on the user canvas during ship placement.
-
-### Class CPU_Player from cpu..py
-
+### CPU Opponent:
 1. **`__init__(self, board_size=10):`**
    - Initializes an instance of the `CPU_Player` class with a specified or default board size.
   
@@ -47,53 +48,53 @@
 7. **`reset_target_mode(self):`**
    - Resets the target mode, clearing hit information and preparing for a new round.
 
-### CPU Opponent:
-9. **`place_cpu_ships_on_board(enemy_game_board):`**
-   - Places CPU ships on the game board.
-
-10. **`place_ships(grid, ships_to_place, placement_stack):`**
-    - Recursively places ships on the grid, ensuring valid placement.
-
-11. **`can_place_ship(grid, x, y, ship_size, orientation):`**
-    - Checks if a ship can be placed at the specified location.
-
-12. **`place_ship(grid, x, y, ship_size, orientation):`**
-    - Places a ship on the grid at the specified location.
-
-13. **`remove_ship(grid, x, y, ship_size, orientation):`**
-    - Removes a ship from the grid.
-
-14. **`all_ships_placed(grid):`**
-    - Checks if all ships have been placed on the grid.
-
 ### Battle Phase:
-15. **`cpu_turn():`**
+1. **`cpu_turn():`**
     - Executes the CPU's turn.
 
-16. **`get_random_shot():`**
+2. **`get_random_shot():`**
     - Gets a random shot for the CPU.
 
-17. **`get_targeted_shot(last_hit):`**
+3. **`get_targeted_shot(last_hit):`**
     - Gets a targeted shot for the CPU based on the last hit position.
 
-18. **`process_cpu_shot(row, col):`**
+4. **`process_cpu_shot(row, col):`**
     - Processes a CPU shot and updates the game board.
 
-19. **`process_shot(row, col):`**
+5. **`process_shot(row, col):`**
     - Processes a user's shot and updates the enemy game board.
 
-20. **`display_hit_or_miss(canvas, col, row, result):`**
+6. **`display_hit_or_miss(canvas, col, row, result):`**
     - Displays a hit or miss on the canvas based on the result.
 
 ### Game Management:
-21. **`create_ranking_system():`**
+1. **`create_ranking_system():`**
     - Creates a ranking system for tracking player performance.
 
-22. **`display_rankings(ranking_system):`**
+2. **`display_rankings(ranking_system):`**
     - Displays player rankings in a new Tkinter window.
 
-23. **`restart_game():`**
+3. **`restart_game():`**
     - Restarts the game by saving data and running the `finaltest.py` script.
+
+### CPU Ship Placement:
+1. **`place_cpu_ships_on_board(enemy_game_board):`**
+   - Places CPU ships on the game board.
+
+2. **`place_ships(grid, ships_to_place, placement_stack):`**
+    - Recursively places ships on the grid, ensuring valid placement.
+
+3. **`can_place_ship(grid, x, y, ship_size, orientation):`**
+    - Checks if a ship can be placed at the specified location.
+
+4. **`place_ship(grid, x, y, ship_size, orientation):`**
+    - Places a ship on the grid at the specified location.
+
+5. **`remove_ship(grid, x, y, ship_size, orientation):`**
+    - Removes a ship from the grid.
+
+6. **`all_ships_placed(grid):`**
+    - Checks if all ships have been placed on the grid.
 
 ### Ranking System:
 1. **`__init__(self):`**
