@@ -139,10 +139,17 @@
 
 1. **`display_rankings(ranking_system):`**
     - Displays player rankings in a new Tkinter window.
+    - The time complexity of getting the ranking using the get_ranking method is O(n log n), where n is the number of players. This is because the get_ranking method uses the merge sort algorithm.
+    - The loop that creates labels to display player information iterates over the ranking list, which has a length of n. The time complexity of this part is O(n).
+    - the dominant factor in the time complexity is the sorting of the ranking, which is O(n log n). Therefore, the overall time complexity of the function is O(n log n).
 
 2. **`restart_game():`**
     - Restarts the game by saving data and running the `main.py` script again.
-    - This function is called after the user presses the "Play again" button from the rankings window. 
+    - This function is called after the user presses the "Play again" button from the rankings window.
+    - The time complexity of saving data to a file depends on the number of players in the ranking system, n.
+    - The subprocess.run function runs a new process to restart the game by executing the 'main.py' script. The time complexity of this operation can be denoted as denoted as O(m) for simplicity, where m is the complexity of the 'main.py' script.
+    - The overall time complexity of the restart_game function can be expressed as O(n + m), where n is the number of players in the ranking system, and m is the complexity of the 'main.py' script.
+
    
 
 ### Welcome Window
