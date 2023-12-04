@@ -29,15 +29,3 @@ def get_player_name_start_game(playerName, root):
     # Do something with the player name (add to ranking list, etc.)
     player_name = playerName
     root.destroy()
-    
-
-
-    #print("Welcome,", player_name, "to the Battleships Game!")
-
-    # Close the welcome window
-    #root.destroy()
-
-# Uncomment the line below if you want to test the window directly
-#create_welcome_window()
-
-
