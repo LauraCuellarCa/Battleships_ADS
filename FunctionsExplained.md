@@ -91,19 +91,19 @@
 2. **`place_ships(grid, ships_to_place, placement_stack):`**
     - Recursively attempts to place ships on the game board using a backtracking algorithm if needed. It explores different orientations and positions for the starting point until a valid placement is found or all possibilities are tried out.
     - The function uses a while loop to attempt placements until all ships are placed or it determines that a valid placement is not possible.   Inside the loop, it randomises the ship orientation and position and checks if the ship can be placed without violating the rules. If successful, the ship is added to the board, and the recursive call continues for the remaining ships. If not, the algorithm backtracks by removing the last attempted placement and trying a different one. 
-    - Time Complexity: The time complexity depends on the efficiency of the backtracking algorithm
+    - Time Complexity: The time complexity depends on the efficiency of the backtracking algorithm and randomisation due to the recursive nature of the algorithm, worst case O notation is exponential, best case O(1).
 
 3. **`can_place_ship(grid, x, y, ship_size, orientation):`**
     - Helper funtion for place_ships that checks if a ship can be placed at the specified position without violating rules.
-    - Time Complexity: O(1).
+    - Time Complexity: O(n) with n being ship_size.
 
 4. **`place_ship(grid, x, y, ship_size, orientation):`**
     - Helper function for place_ships that places a ship on the grid at the specified location changing the value of the corresponding cells on the game board to indicate the presence of the ship.
-    - Time Complexity: O(1).
+    - Time Complexity: O(n) with n being ship_size.
 
 5. **`remove_ship(grid, x, y, ship_size, orientation):`**
     - Helper function for the place_ships function. It is used for backtracking and removes a previously placed ship from the game board.
-    - Time Complexity: O(1).
+    - Time Complexity: O(n) with n being ship_size.
 
 6. **`all_ships_placed(grid):`**
     - Checks if all ships have been placed on the grid by comparing the summation of cell values to summation of ship lengths.
