@@ -24,6 +24,29 @@
 8. **`on_user_canvas_click(event):`**
    - Handles the user's click on the user canvas during ship placement.
 
+### Class CPU_Player from cpu..py
+
+1. **`__init__(self, board_size=10):`**
+   - Initializes an instance of the `CPU_Player` class with a specified or default board size.
+  
+2. **`update_board(self, row, col, result):`**
+   - Updates the CPU player's board based on the result of a shot (Hit or Miss).
+  
+3. **`determine_hit_directions(self, row, col):`**
+   - Determines the possible hit directions for the CPU player to continue targeting a ship.
+  
+4. **`switch_hit_direction(self):`**
+   - Switches the hit direction if the current direction reaches a dead-end.
+  
+5. **`choose_shot(self):`**
+   - Chooses the next shot based on the current targeting mode or takes a random shot if not in target mode.
+  
+6. **`random_shot(self):`**
+   - Generates a random shot (row, col) on the CPU player's board.
+  
+7. **`reset_target_mode(self):`**
+   - Resets the target mode, clearing hit information and preparing for a new round.
+
 ### CPU Opponent:
 9. **`place_cpu_ships_on_board(enemy_game_board):`**
    - Places CPU ships on the game board.
@@ -96,5 +119,15 @@
 
 8. **`load_existing_players(self):`**
    - Loads existing player data at the beginning of the game. Calls `load_data()` internally.
+   
+
+### Welcome Window
+
+1. **`create_welcome_window():`**
+   - Creates a welcome window for the Battleships Game using Tkinter.
+  
+2. **`get_player_name_start_game(playerName, root):`**
+   - Gets the player name entered in the welcome window and starts the game. Closes the welcome window.
+
 
 
