@@ -72,3 +72,29 @@
 23. **`restart_game():`**
     - Restarts the game by saving data and running the `finaltest.py` script.
 
+### Ranking System:
+1. **`__init__(self):`**
+   - Initializes an instance of the `RankingSystem` class with an empty dictionary for players.
+
+2. **`add_player(self, player_name):`**
+   - Adds a new player to the ranking system with initial play and win counts.
+
+3. **`record_play(self, player_name, won=False):`**
+   - Records a play for the specified player, increments play count, and, if applicable, win count.
+
+4. **`merge_sort(self, player_list):`**
+   - Performs the merge sort algorithm on the list of players, sorting them based on the number of wins.
+
+5. **`get_ranking(self):`**
+   - Returns a sorted list of players based on their win counts.
+
+6. **`save_data(self):`**
+   - Saves the ranking system data (players and their stats) to a JSON file named "player_data.json."
+
+7. **`load_data(self):`**
+   - Loads the ranking system data from the "player_data.json" file.
+
+8. **`load_existing_players(self):`**
+   - Loads existing player data at the beginning of the game. Calls `load_data()` internally.
+
+
