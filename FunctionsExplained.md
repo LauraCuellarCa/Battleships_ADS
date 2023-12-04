@@ -72,17 +72,6 @@
     - Displays the result of a shot (hit or miss) on the canvas.
     - As it is mostly a UI affecting function, its time complexity depends on the underlying graphics but can be considered O(1) for the logic part of updating a single grid cell.
 
-### Game Management:
-1. **`create_ranking_system():`**
-    - Creates a ranking system for tracking player performance.
-
-2. **`display_rankings(ranking_system):`**
-    - Displays player rankings in a new Tkinter window.
-
-3. **`restart_game():`**
-    - Restarts the game by saving data and running the `main.py` script again.
-    - This function is called after the user presses the "Play again" button from the rankings window. 
-
 ### CPU Ship Placement:
 1. **`place_cpu_ships_on_board(enemy_game_board):`**
    - Places CPU ships on the game board using specified ship sizes. Utilizes the place_ships function.
@@ -115,29 +104,45 @@
 
 2. **`add_player(self, player_name):`**
    - Adds a new player to the ranking system with initial play and win counts.
+   - The time complexity of adding a player is O(1) because updating a dictionary with a constant number of operations.
 
 3. **`record_play(self, player_name, won=False):`**
    - Records a play for the specified player, increments play count, and, if applicable, win count.
-   - Checks if the player already exists in the dictionary, and if so, it updates their play/win count. Otherwise, it calls on the 'add_player' function and adds them to the player dictionary with initial values. 
+   - Checks if the player already exists in the dictionary, and if so, it updates their play/win count. Otherwise, it calls on the 'add_player' function and adds them to the player dictionary with initial values.
+   - The time complexity of updating plays and wins for a player is O(1) because it involves updating values in a dictionary.
      
 4. **`merge_sort(self, player_list):`**
    - Performs the merge sort algorithm on the list of players, sorting them based on the number of wins.
-   - recursively divides the player_list into smaller halves until each subarray has only one element (which is inherently sorted). Then, it merges these sorted subarrays back together in a way that ensures the final merged array is sorted. More detailed explanation here --> 
+   - recursively divides the player_list into smaller halves until each subarray has only one element (which is inherently sorted). Then, it merges these sorted subarrays back together in a way that ensures the final merged array is sorted. More detailed explanation here.
+   - The time complexity of merge sort is O(n log n), where n is the length of the player_list. This is due to the recursive nature of the algorithm.
 
 5. **`get_ranking(self):`**
    - Returns a sorted list of players based on their win counts.
-   - Calls on the merge_sort algorithm and passes in the current player_list as a parameter. 
+   - Calls on the merge_sort algorithm and passes in the current player_list as a parameter.
+   - Calls merge_sort, so the time complexity is O(n log n), where n is the number of players.
 
 6. **`save_data(self):`**
    - Saves the ranking system data (players and their stats) to a JSON file named "player_data.json."
+   - The time complexity of saving data to a file is O(n), where n is the number of players. This is because it involves iterating over the players and writing their data to a file.
 
 7. **`load_data(self):`**
    - Loads the ranking system data from the "player_data.json" file.
-   - return empty data if the file is not found. 
+   - return empty data if the file is not found.
+   - The time complexity of loading data from a file is O(n), where n is the number of players. This is because it involves reading data from a file and updating the players' dictionary.
 
 8. **`load_existing_players(self):`**
    - Loads existing player data at the beginning of the game. Calls `load_data()` internally.
    - Implemented to keep game history up to date everytime the user choses to "play again"
+   - Calls load_data, so the time complexity is also O(n), where n is the number of players.
+   - 
+### Game Management:
+
+1. **`display_rankings(ranking_system):`**
+    - Displays player rankings in a new Tkinter window.
+
+2. **`restart_game():`**
+    - Restarts the game by saving data and running the `main.py` script again.
+    - This function is called after the user presses the "Play again" button from the rankings window. 
    
 
 ### Welcome Window
