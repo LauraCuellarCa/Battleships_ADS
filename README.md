@@ -7,7 +7,6 @@ This Battleship game is a classic two-player strategy game implemented in Python
 
 ## 🔗 Function Explanations and Time Complexities: [Functions Explained](FunctionsExplained.md)
 ## 🔗 Algorithms and Data Structures Used: [Algorithms and Data Structures Explained](AlgorithmsAndDataStructures_Explained.md)
-🚢⛴⚓️🗺🔗🔑🧨💣🛳🎮💥☄️🌊👩🏽‍💻
 
 ## Key Features 🔑
 - **Ship Placement:** Players place their ships on the grid one by one, adhering to ship lengths and directions.
@@ -16,7 +15,7 @@ This Battleship game is a classic two-player strategy game implemented in Python
 - **Dynamic Grid:** The graphical interface displays a dynamic grid using Tkinter, with visual feedback on ship placements, hits, and misses.
 - **Ranking System:** A ranking system tracks player performance, recording plays and wins.
 
-## How to Play
+## How to Play 🎮
 1. Run the program and enter your name in the welcome window.
 2. Place your ships on the grid by clicking on the user canvas.
 3. The game transitions to the battle phase where you click on the enemy grid to attack.
@@ -26,16 +25,16 @@ This Battleship game is a classic two-player strategy game implemented in Python
 
 **Note:** The game offers an option to view player rankings and provides a "Play Again" feature for an engaging and competitive experience.
 
-## Requirements
+## Requirements 💣
 - Python 3
 - Tkinter (usually included in standard Python installations)
 
-## Usage
+## Usage 👩🏽‍💻
 1. Clone the repository.
 2. Run the `main.py` script.
 
 
-## Gameplay Flow 🎮 🗺
+## Gameplay Flow 🗺
 **1. Welcome Window:**
    - The game starts with a welcome window prompting the player to enter their name.
    - The player enters their name and clicks the "Start Game" button.
