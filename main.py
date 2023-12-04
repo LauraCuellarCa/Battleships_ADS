@@ -239,10 +239,8 @@ def remove_ship(grid, x, y, ship_size, orientation):
 
 
 def all_ships_placed(grid):
-    for row in grid:
-        if 0 in row:
-            return False
-    return True
+    total_ship_cells = sum(row.count(1) for row in grid)
+    return total_ship_cells == sum(ship_sizes)
 
 
 def on_user_canvas_click(event):
