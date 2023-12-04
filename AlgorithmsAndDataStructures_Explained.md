@@ -3,7 +3,7 @@
 
 ### * CPU Algos/ Data structere here (hit or miss greedy/dynamic prog, ship placement using recursion and backtracking, etc. *
 
-### Merge Sort - key aspect of our ranking system
+### MERGE SORT - key aspect of our ranking system
 
 We used this divide-and-conquer sorting algorithm by recursively dividing the player list into smaller halves until each subarray has only one sorted element. Then, it merges these sorted subarrays back together in a way that ensures the final merged array is sorted. The function is defined under the Rankings class. 
 
@@ -64,7 +64,7 @@ The end result is that the `player_list` is now sorted based on the value of `['
                    k += 1
 
 
-### Queues - Used for User Ship Placement and Managing CPU hit Directions
+### QUEUES - Used for User Ship Placement and Managing CPU hit Directions
 
 **CPU HIT MANGAGEMENT**
 
