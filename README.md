@@ -30,10 +30,8 @@ This Battleship game is a classic two-player strategy game implemented in Python
 1. Clone the repository.
 2. Run the `main.py` script.
 
-Enjoy the classic Battleship experience with a modern Python implementation!
 
-
-# Gameplay Flow 
+## Gameplay Flow 
 **1. Welcome Window:**
    - The game starts with a welcome window prompting the player to enter their name.
    - The player enters their name and clicks the "Start Game" button.
