@@ -155,7 +155,7 @@ In summary, the deque (`hit_directions`) is used as a stack to manage hit direct
 
 **USER SHIP PLACEMENT**
 
-In the provided Battleships game code, the `ship_queue` is a deque (double-ended queue) used to manage the order in which the user places ships on the board during the ship placement phase. Here's an explanation of how the `ship_queue` is utilized:
+In this Battleships game, the `ship_queue` is a deque (double-ended queue) used to manage the order in which the user places ships on the board during the ship placement phase.
 
 1. **Initialization:**
    - At the beginning of the game, the `ship_queue` is initialized with instances of the `Ship` class representing different types of ships with their respective lengths.
