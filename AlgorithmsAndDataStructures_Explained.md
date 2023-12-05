@@ -131,7 +131,7 @@ The end result is that the `player_list` is now sorted based on the value of `['
 
 **CPU HIT MANGAGEMENT**
 
-In our game, queues are used for managing hit directions in the `CPU_Player` class. Specifically, the `hit_directions` attribute is defined as a `deque` (double-ended queue) from the `collections` module. Here's a breakdown of how queues are used in the code:
+In our game, queues are used for managing hit directions in the `CPU_Player` class. Specifically, the `hit_directions` attribute is defined as a `deque` (double-ended queue) from the `collections` module. 
 
 1. **Initialization:**
    - `self.hit_directions = deque()`: This line initializes an empty deque (`hit_directions`) that will be used to store the hit directions.
